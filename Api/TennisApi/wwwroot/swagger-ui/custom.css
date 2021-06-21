@@ -1,0 +1,11 @@
+﻿.topbar {
+    display: none;
+}
+
+.swagger-ui .topbar a {
+    display: none;
+}
+
+input[disabled] {
+    display: none;
+}

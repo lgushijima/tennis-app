@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TennisApi</name>
+    </assembly>
+    <members>
+        <member name="M:TennisApi.Controllers.AuthController.Token(TennisApi.Interactors.Auth.LoginRequest)">
+            <summary>
+            Gerar um access token válido para o usuário
+            </summary>
+            <param name="request">Objeto com parametros de request</param>
+            <returns></returns>
+        </member>
+        <member name="M:TennisApi.Controllers.AuthController.Teste1(System.Int32)">
+            <summary>
+            Método de teste 
+            </summary>
+            <param name="teste">teste</param>
+            <returns></returns>
+        </member>
+        <member name="M:TennisApi.Controllers.AuthController.Teste2(System.String)">
+            <summary>
+            Método de teste 
+            </summary>
+            <param name="teste">teste</param>
+            <returns></returns>
+        </member>
+        <member name="M:TennisApi.Controllers.NotaNegociacaoController.List(System.Nullable{System.Int32},System.Nullable{System.Int32},System.DateTime)">
+            <summary>
+            Listar notas de negociação
+            </summary>
+            <param name="anoMes">Ano/mês. Ex: 201901</param>
+            <param name="numero">Número da nota.</param>
+            <param name="dataReferencia">Data do pregão.</param>
+            <returns></returns>
+        </member>
+        <member name="M:TennisApi.Controllers.NotaNegociacaoController.Save(TennisApi.Data.Model.NotaNegociacao)">
+            <summary>
+            Salvar notas de negociação
+            </summary>
+            <param name="model">NotaNegociacao</param>
+            <returns></returns>
+        </member>
+        <member name="M:TennisApi.Controllers.NotaNegociacaoController.Delete(System.Guid)">
+            <summary>
+            Excluir nota de negociação
+            </summary>
+            <param name="IDNotaNegociacao">IDNotaNegociacao</param>
+            <returns></returns>
+        </member>
+        <member name="M:TennisApi.Controllers.NotaNegociacaoItemController.List(System.Guid)">
+            <summary>
+            Listar notas de negociação
+            </summary>
+            <param name="idNotaNegociacao">idNotaNegociacaoItem</param>
+            <returns></returns>
+        </member>
+        <member name="M:TennisApi.Controllers.NotaNegociacaoItemController.Save(TennisApi.Data.Model.NotaNegociacaoItem)">
+            <summary>
+            Salvar item da nota de negociação
+            </summary>
+            <param name="model">NotaNegociacaoItem</param>
+            <returns></returns>
+        </member>
+        <member name="M:TennisApi.Controllers.NotaNegociacaoItemController.Delete(System.Guid)">
+            <summary>
+            Excluir nota de negociação
+            </summary>
+            <param name="idNotaNegociacaoItem">idNotaNegociacaoItem</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
