@@ -1,34 +1,27 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using TennisApi.Config;
-using TennisApi.Data.Model;
 using TennisApi.Filters.Exceptions;
 using TennisApi.Filters.Validators;
-using TennisApi.Interactors.Auth;
 using TennisApi.Service.JWT;
 using TennisApi.Shared.Configs;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-//using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
+using TennisApi.Interactors;
+using TennisApi.Interactors.Auth;
+using TennisApi.Data.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace TennisApi
 {
@@ -116,18 +109,19 @@ namespace TennisApi
              });
 
             // DataBase Context
-            services.AddDbContext<innoFinDBContext>(options =>
+            services.AddDbContext<TennisDBContext>(options =>
             {
                 options.UseSqlServer(Configuration["ConnectionStrings:main_database"]);
             }, ServiceLifetime.Transient);
-            services.AddDbContext<innoFinDBContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:main_database"]), ServiceLifetime.Transient);
+            services.AddDbContext<TennisDBContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:main_database"]), ServiceLifetime.Transient);
+
 
             // Main Configurations
             services.Configure<AuthConfig>(Configuration.GetSection("configs"));
 
 
             // MediatR
-            services.AddMediatR(typeof(LoginRequest));
+            services.AddMediatR(typeof(LoginHandler));
             services.AddMediatR(typeof(Startup));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehaviour<,>));
 

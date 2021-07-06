@@ -14,4 +14,9 @@
     <ProjectReference Include="..\TennisApi.Shared\TennisApi.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Person\Commands\" />
+    <Folder Include="Profile\Commands\" />
+  </ItemGroup>
+
 </Project>

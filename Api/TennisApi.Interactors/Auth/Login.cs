@@ -9,34 +9,30 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using TennisApi.Shared.Crypto;
 
 namespace TennisApi.Interactors.Auth
 {
-    public class LoginRequest
-    {
-        public string Email { get; set; }
-        public string Senha { get; set; }
-    }
-
     public class Login : IRequest<TokenModel>
     {
-        public LoginRequest Data { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 
     public class LoginValidator : AbstractValidator<Login>
     {
         public LoginValidator()
         {
-            RuleFor(x => x.Data.Email).NotEmpty().WithMessage("Email não foi informado");
-            RuleFor(x => x.Data.Senha).NotEmpty().WithMessage("Senha não informada");
+            RuleFor(x => x.Email).NotEmpty().WithMessage("Email is required");
+            RuleFor(x => x.Password).NotEmpty().WithMessage("Password is required");
         }
     }
 
     public class LoginHandler : IRequestHandler<Login, TokenModel>
     {
         private readonly IMediator _mediator;
-        private innoFinDBContext _dbContext;
-        public LoginHandler(IMediator mediator, innoFinDBContext dbContext)
+        private TennisDBContext _dbContext;
+        public LoginHandler(IMediator mediator, TennisDBContext dbContext)
         {
             this._mediator = mediator;
             this._dbContext = dbContext;
@@ -45,25 +41,21 @@ namespace TennisApi.Interactors.Auth
         public async Task<TokenModel> Handle(Login request, CancellationToken cancellationToken)
         {
             var loginToken = (from l in _dbContext.Login
-                         join c in _dbContext.Cliente on l.ID equals c.IDLogin
-                         where
-                           l.Email == request.Data.Email &&
-                           l.Senha == request.Data.Senha
-                         select new TokenModel
-                         {
-                             Email = l.Email,
-                             Nome = c.Nome,
-                             IDStatus = l.IDStatus,
-                             IDLogin = l.ID
-                         }).FirstOrDefault();
+                              join p in _dbContext.Profile on l.ID equals p.LoginID
+                              join pe in _dbContext.Person on p.PersonID equals pe.ID
+                              where
+                                l.Email == request.Email &&
+                                l.Password == request.Password
+                              select new TokenModel
+                              {
+                                  Email = l.Email,
+                                  Nome = pe.Name,
+                                  Status = l.Status,
+                                  IDLogin = l.ID
+                              }).FirstOrDefault();
 
             if (loginToken != null)
             {
-                if (loginToken.IDStatus == 2)
-                {
-                    throw new Exception("Status inválido!");
-                }
-
                 return loginToken;
             }
 

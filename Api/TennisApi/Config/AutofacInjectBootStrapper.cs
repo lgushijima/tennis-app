@@ -1,11 +1,12 @@
 ﻿using Autofac;
 using FluentValidation;
-using TennisApi.Interactors.Auth;
+using TennisApi.Interactors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using TennisApi.Interactors.Auth;
 
 namespace TennisApi.Config
 {
@@ -18,7 +19,7 @@ namespace TennisApi.Config
             //    .AsImplementedInterfaces()
             //    .InstancePerLifetimeScope();
 
-            builder.RegisterAssemblyTypes(typeof(LoginRequest).GetTypeInfo().Assembly)
+            builder.RegisterAssemblyTypes(typeof(LoginHandler).GetTypeInfo().Assembly)
                 .AsClosedTypesOf(typeof(AbstractValidator<>))
                 .AsImplementedInterfaces()
                 .InstancePerDependency();

@@ -21,7 +21,7 @@ namespace TennisApi.Service.JWT
                 {
                     new Claim("Email", model.Email),
                     new Claim("Nome", model.Nome),
-                    new Claim("Status", model.IDStatus.ToString()),
+                    new Claim("Status", model.Status),
                     new Claim("ID", model.IDLogin.ToString()),
                     new Claim("DataLogin", DateTime.UtcNow.ToString())
                 }),
@@ -39,7 +39,7 @@ namespace TennisApi.Service.JWT
                 IDLogin = Guid.Parse(claims.FindFirst("ID").Value),
                 Email = claims.FindFirst("Email").Value,
                 Nome = claims.FindFirst("Nome").Value,
-                IDStatus = int.Parse(claims.FindFirst("Status").Value)
+                Status = claims.FindFirst("Status").Value
             };
 
             return token;

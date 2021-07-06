@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using TennisApi.Shared.Crypto;
 
 namespace TennisApi.Controllers
 {
@@ -30,6 +31,7 @@ namespace TennisApi.Controllers
             _config = config.Value;
         }
 
+
         /// <summary>
         /// Gerar um access token válido para o usuário
         /// </summary>
@@ -41,10 +43,12 @@ namespace TennisApi.Controllers
         [ProducesResponseType(typeof(ApiResponse), (int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(ApiResponse), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-        public async Task<IActionResult> Token([FromBody] LoginRequest request) //, [FromBody] AuthConfig model
+        public async Task<IActionResult> Token([FromBody] Login request) //, [FromBody] AuthConfig model
         {
-            var command = new Login {
-                Data = request
+            var command = new Login
+            {
+                Email = request.Email,
+                Password = new Crypto().Encrypt(request.Password)
             };
 
             var result = await _mediator.Send(command);
@@ -55,41 +59,23 @@ namespace TennisApi.Controllers
                 return Ok(response);
             }
 
-            throw new Exception("Login inválido!\nVerifique o e-mail e a senha informada e tente novamente.");
+            throw new Exception("Invalid login name or password");
         }
 
         /// <summary>
-        /// Método de teste 
+        /// Encrypt password
         /// </summary>
-        /// <param name="teste">teste</param>
+        /// <param name="pwd">Password</param>
         /// <returns></returns>
-        [Authorize] //[Authorize(Roles = "employee,manager")]
-        [HttpGet("teste1/{teste}")]
-        [ProducesResponseType(typeof(int), (int)HttpStatusCode.OK)]
+        [AllowAnonymous]
+        [HttpGet("teste")]
+        [ProducesResponseType(typeof(ApiResponse<string>), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(ApiResponse), (int)HttpStatusCode.InternalServerError)]
         [ProducesResponseType(typeof(ApiResponse), (int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-        public async Task<IActionResult> Teste1(int teste)
+        public async Task<IActionResult> teste(string pwd)
         {
-            return Ok(teste);
-            //return _dbContext.Login.Count();
-        }
-
-        /// <summary>
-        /// Método de teste 
-        /// </summary>
-        /// <param name="teste">teste</param>
-        /// <returns></returns>
-        [AllowAnonymous] //[Authorize(Roles = "employee,manager")]
-        [HttpGet("teste2/{teste}")]
-        [ProducesResponseType(typeof(string), (int)HttpStatusCode.OK)]
-        [ProducesResponseType(typeof(ApiResponse), (int)HttpStatusCode.InternalServerError)]
-        [ProducesResponseType(typeof(ApiResponse), (int)HttpStatusCode.BadRequest)]
-        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
-        public async Task<IActionResult> Teste2(string teste)
-        {
-            return Ok(teste);
-            //return _dbContext.Login.Count();
+            return Ok(new Crypto().Encrypt(pwd));
         }
     }
 }
