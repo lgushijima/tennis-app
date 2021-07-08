@@ -1,4 +1,0 @@
-﻿
-dotnet tool install -g dotnet-ef
-
-dotnet ef dbcontext scaffold "Data Source=(local); Initial Catalog=innoTennisDB; Integrated Security=true" Microsoft.EntityFrameworkCore.SqlServer --use-database-names --output-dir Model -f
