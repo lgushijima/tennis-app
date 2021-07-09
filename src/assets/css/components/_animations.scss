@@ -1,0 +1,528 @@
+﻿@use '../variables.scss';
+
+.fadeIn {
+    opacity: 1;
+    -webkit-animation: fadeIn 0.3s;
+    -moz-animation: fadeIn 0.3s;
+    -o-animation: fadeIn 0.3s;
+    animation: fadeIn 0.3s;
+}
+
+.fadeOut {
+    opacity: 0;
+    -webkit-animation: fadeOut 0.3s;
+    -moz-animation: fadeOut 0.3s;
+    -o-animation: fadeOut 0.3s;
+    animation: fadeOut 0.3s;
+}
+
+.block-element-ui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $secondary-text;
+    -webkit-animation: fadeIn 0.3s;
+    -moz-animation: fadeIn 0.3s;
+    -o-animation: fadeIn 0.3s;
+    animation: fadeIn 0.3s;
+}
+
+#preloader {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999999;
+
+    &.show-header {
+        top: 60px;
+    }
+}
+
+#preloader > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    width: 200px;
+    margin-left: -100px;
+    margin-top: -100px;
+    text-align: center;
+}
+
+#preloader span {
+    font-size: 40px;
+    color: #bbb;
+}
+
+#preloader p {
+    margin-top: 10px;
+    color: #bbb;
+    font-size: 14px;
+}
+
+.lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+
+    div {
+        animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        transform-origin: 40px 40px;
+
+        &:after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: $primary;
+            margin: -4px 0 0 -4px;
+        }
+    }
+    div:nth-child(1) {
+        animation-delay: -0.036s;
+    }
+    div:nth-child(1):after {
+        top: 63px;
+        left: 63px;
+    }
+    div:nth-child(2) {
+        animation-delay: -0.072s;
+    }
+    div:nth-child(2):after {
+        top: 68px;
+        left: 56px;
+    }
+    div:nth-child(3) {
+        animation-delay: -0.108s;
+    }
+    div:nth-child(3):after {
+        top: 71px;
+        left: 48px;
+    }
+    div:nth-child(4) {
+        animation-delay: -0.144s;
+    }
+    div:nth-child(4):after {
+        top: 72px;
+        left: 40px;
+    }
+    div:nth-child(5) {
+        animation-delay: -0.18s;
+    }
+    div:nth-child(5):after {
+        top: 71px;
+        left: 32px;
+    }
+    div:nth-child(6) {
+        animation-delay: -0.216s;
+    }
+    div:nth-child(6):after {
+        top: 68px;
+        left: 24px;
+    }
+    div:nth-child(7) {
+        animation-delay: -0.252s;
+    }
+    div:nth-child(7):after {
+        top: 63px;
+        left: 17px;
+    }
+    div:nth-child(8) {
+        animation-delay: -0.288s;
+    }
+    div:nth-child(8):after {
+        top: 56px;
+        left: 12px;
+    }
+}
+
+@keyframes lds-roller {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+// BELL RING ========================
+.bell-ringing {
+    -webkit-animation: ring 4s 0.7s ease-in-out infinite;
+    -webkit-transform-origin: 50% 4px;
+    -moz-animation: ring 4s 0.7s ease-in-out infinite;
+    -moz-transform-origin: 50% 4px;
+    animation: ring 4s 0.7s ease-in-out infinite;
+    transform-origin: 50% 4px;
+}
+
+@-webkit-keyframes ring {
+    0% {
+        -webkit-transform: rotateZ(0);
+    }
+
+    1% {
+        -webkit-transform: rotateZ(30deg);
+    }
+
+    3% {
+        -webkit-transform: rotateZ(-28deg);
+    }
+
+    5% {
+        -webkit-transform: rotateZ(34deg);
+    }
+
+    7% {
+        -webkit-transform: rotateZ(-32deg);
+    }
+
+    9% {
+        -webkit-transform: rotateZ(30deg);
+    }
+
+    11% {
+        -webkit-transform: rotateZ(-28deg);
+    }
+
+    13% {
+        -webkit-transform: rotateZ(26deg);
+    }
+
+    15% {
+        -webkit-transform: rotateZ(-24deg);
+    }
+
+    17% {
+        -webkit-transform: rotateZ(22deg);
+    }
+
+    19% {
+        -webkit-transform: rotateZ(-20deg);
+    }
+
+    21% {
+        -webkit-transform: rotateZ(18deg);
+    }
+
+    23% {
+        -webkit-transform: rotateZ(-16deg);
+    }
+
+    25% {
+        -webkit-transform: rotateZ(14deg);
+    }
+
+    27% {
+        -webkit-transform: rotateZ(-12deg);
+    }
+
+    29% {
+        -webkit-transform: rotateZ(10deg);
+    }
+
+    31% {
+        -webkit-transform: rotateZ(-8deg);
+    }
+
+    33% {
+        -webkit-transform: rotateZ(6deg);
+    }
+
+    35% {
+        -webkit-transform: rotateZ(-4deg);
+    }
+
+    37% {
+        -webkit-transform: rotateZ(2deg);
+    }
+
+    39% {
+        -webkit-transform: rotateZ(-1deg);
+    }
+
+    41% {
+        -webkit-transform: rotateZ(1deg);
+    }
+
+    43% {
+        -webkit-transform: rotateZ(0);
+    }
+
+    100% {
+        -webkit-transform: rotateZ(0);
+    }
+}
+
+@-moz-keyframes ring {
+    0% {
+        -moz-transform: rotate(0);
+    }
+
+    1% {
+        -moz-transform: rotate(30deg);
+    }
+
+    3% {
+        -moz-transform: rotate(-28deg);
+    }
+
+    5% {
+        -moz-transform: rotate(34deg);
+    }
+
+    7% {
+        -moz-transform: rotate(-32deg);
+    }
+
+    9% {
+        -moz-transform: rotate(30deg);
+    }
+
+    11% {
+        -moz-transform: rotate(-28deg);
+    }
+
+    13% {
+        -moz-transform: rotate(26deg);
+    }
+
+    15% {
+        -moz-transform: rotate(-24deg);
+    }
+
+    17% {
+        -moz-transform: rotate(22deg);
+    }
+
+    19% {
+        -moz-transform: rotate(-20deg);
+    }
+
+    21% {
+        -moz-transform: rotate(18deg);
+    }
+
+    23% {
+        -moz-transform: rotate(-16deg);
+    }
+
+    25% {
+        -moz-transform: rotate(14deg);
+    }
+
+    27% {
+        -moz-transform: rotate(-12deg);
+    }
+
+    29% {
+        -moz-transform: rotate(10deg);
+    }
+
+    31% {
+        -moz-transform: rotate(-8deg);
+    }
+
+    33% {
+        -moz-transform: rotate(6deg);
+    }
+
+    35% {
+        -moz-transform: rotate(-4deg);
+    }
+
+    37% {
+        -moz-transform: rotate(2deg);
+    }
+
+    39% {
+        -moz-transform: rotate(-1deg);
+    }
+
+    41% {
+        -moz-transform: rotate(1deg);
+    }
+
+    43% {
+        -moz-transform: rotate(0);
+    }
+
+    100% {
+        -moz-transform: rotate(0);
+    }
+}
+
+@keyframes ring {
+    0% {
+        transform: rotate(0);
+    }
+
+    1% {
+        transform: rotate(30deg);
+    }
+
+    3% {
+        transform: rotate(-28deg);
+    }
+
+    5% {
+        transform: rotate(34deg);
+    }
+
+    7% {
+        transform: rotate(-32deg);
+    }
+
+    9% {
+        transform: rotate(30deg);
+    }
+
+    11% {
+        transform: rotate(-28deg);
+    }
+
+    13% {
+        transform: rotate(26deg);
+    }
+
+    15% {
+        transform: rotate(-24deg);
+    }
+
+    17% {
+        transform: rotate(22deg);
+    }
+
+    19% {
+        transform: rotate(-20deg);
+    }
+
+    21% {
+        transform: rotate(18deg);
+    }
+
+    23% {
+        transform: rotate(-16deg);
+    }
+
+    25% {
+        transform: rotate(14deg);
+    }
+
+    27% {
+        transform: rotate(-12deg);
+    }
+
+    29% {
+        transform: rotate(10deg);
+    }
+
+    31% {
+        transform: rotate(-8deg);
+    }
+
+    33% {
+        transform: rotate(6deg);
+    }
+
+    35% {
+        transform: rotate(-4deg);
+    }
+
+    37% {
+        transform: rotate(2deg);
+    }
+
+    39% {
+        transform: rotate(-1deg);
+    }
+
+    41% {
+        transform: rotate(1deg);
+    }
+
+    43% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+.blink {
+    animation: blinker 0.33s linear infinite;
+}
+
+// BLINKER =============================
+@keyframes blinker {
+    50% {
+        opacity: 0.3;
+    }
+}
+
+// FADE IN ============================
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-moz-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+// FADE OUT ============================
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@-moz-keyframes fadeIn {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

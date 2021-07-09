@@ -1,0 +1,76 @@
+﻿/*$primary: #ff0000;*/
+$primary: #7dcf2e;
+$primary-hover: darken($primary, 5%);
+$primary-light: #93ca21;
+$primary-dark: #304917;
+$primary-background-light: #e5f5d5;
+$primary-background-light-hover: darken($primary-background-light, 5%);
+
+$light-background: #f6faf7;
+$light-background-hover: darken($light-background, 5%);
+
+$primary-gradient-start: #a3d832;
+$primary-gradient-end: #5dc82a;
+
+$secondary: #2f7aea;
+$secondary-hover: darken($secondary, 5%);
+$secondary-light: #96bcf4;
+$secondary-background-light: #d5e4fb;
+$secondary-background-light-hover: darken($secondary-background-light, 5%);
+$secondary-gradient-start: #a4d3fe;
+$secondary-gradient-end: #738bff;
+
+$warning: #f2994a;
+$warning-hover: darken($warning, 5%);
+$warning-light: #f8cba4;
+$warning-background-light: #fcebdb;
+$warning-background-light-hover: darken($warning-background-light, 5%);
+$warning-gradient-start: #ffd951;
+$warning-gradient-end: #f2994a;
+
+$info: #2f7aea;
+$info-hover: darken($info, 5%);
+$info-light: #96bcf4;
+$info-background-light: #d5e4fb;
+$info-background-light-hover: darken($info-background-light, 5%);
+$info-gradient-start: #a4d3fe;
+$info-gradient-end: #738bff;
+
+$danger: #eb5757;
+$danger-hover: darken($danger, 5%);
+$danger-light: #fb6a6a;
+$danger-background-light: #fbdddd;
+$danger-background-light-hover: darken($danger-background-light, 5%);
+
+$dark-gradient-start: #555554;
+$dark-gradient-end: #353535;
+
+@use "../bootstrap/bootstrap";
+
+$text-gray-1: #333;
+$text-gray-2: #4c594c;
+$text-gray-3: #576557;
+$text-gray-4: #75797e;
+$text-gray-5: #a4b1a4;
+$text-gray-6: #bcc6bd;
+$text-gray-7: #ccc;
+$text-gray-8: #d7dfd7;
+$text-gray-9: #fafafa;
+
+$text-white-70: rgba(255, 255, 255, 0.7);
+
+$primary-text: $text-gray-3;
+$secondary-text: $text-gray-5;
+$disabled-text: $text-gray-7;
+
+.primary-text {
+    color: $primary-text;
+}
+.secondary-text {
+    color: $secondary-text;
+}
+.disabled-text {
+    color: $disabled-text;
+}
+
+$credit-card-background: #e9f4ec;

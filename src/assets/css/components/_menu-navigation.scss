@@ -1,0 +1,119 @@
+﻿@use '../variables.scss';
+
+
+
+/*** Panel Navigation ***/
+/************************/
+ul.menu-nagivation {
+    width: 100%;
+    font-size: 1rem;
+}
+
+ul.menu-nagivation > li.nav-top .nav-logo > img {
+    height: 24px;
+}
+
+
+ul.menu-nagivation li {
+    display: block;
+    position: relative;
+    background-color: $white;
+}
+
+ul.menu-nagivation li > a.nav-link {
+    flex-direction: row;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    text-align: left;
+    display: flex;
+    width: 100%;
+    color: $primary-text;
+    border-left: 3px solid transparent;
+    border-top: 1px solid $gray-200;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+ul.menu-nagivation li > a > i {
+    width: 2rem;
+    font-size: 1rem;
+}
+
+ul.menu-nagivation li > a > span {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+ul.menu-nagivation li > a > span {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+ul.menu-nagivation li > a > span > i {
+    position: absolute;
+    right: 0px;
+    top: 8px;
+    font-size: 12px;
+    -webkit-transition: all 0.15s ease-in-out;
+    -moz-transition: all 0.15s ease-in-out;
+    -ms-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+}
+
+ul.menu-nagivation li.open > a.nav-link > span > i {
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+// ul.menu-nagivation li.open > a.nav-link,
+ul.menu-nagivation li.active > a.nav-link,
+ul.menu-nagivation li:hover > a.nav-link {
+    background-color: $gray-100;
+    color: $primary;
+    border-left: 3px solid $primary;
+}
+
+ul.menu-nagivation li ul {
+    padding: 0px;
+    padding-bottom: 1px;
+    overflow: hidden;
+    font-size: 0.8rem;
+    height: 0px;
+    transition: height 0.25s ease-in-out;
+}
+
+ul.menu-nagivation li.open > ul {
+}
+
+ul.menu-nagivation li ul li a.nav-link {
+    padding: 0.5rem 1rem;
+    padding-left: 2rem;
+    border-top: none;
+    border-left: 3px solid $gray-100;
+}
+
+ul.menu-nagivation li ul li:first-child a.nav-link {
+    border-top: 1px solid $gray-100;
+}
+
+ul.menu-nagivation li ul li.open > a.nav-link,
+ul.menu-nagivation li ul li.active > a.nav-link,
+ul.menu-nagivation li ul li:hover > a.nav-link {
+    background-color: $gray-200;
+    border-left: 3px solid $primary;
+}
+
+
+@media (max-width: 767px) {
+    ul.menu-nagivation > li.nav-top {
+        height: 0px;
+    }
+}

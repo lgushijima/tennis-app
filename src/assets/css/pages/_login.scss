@@ -1,0 +1,18 @@
+@import "./src/assets/css/variables";
+// @use "./src/assets/css/components/common";
+
+// @use "./src/assets/css/Components/animations";
+// @use "./src/assets/css/Components/button";
+// @use "./src/assets/css/Components/modal";
+
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+    font-size: 16px;
+    color: $primary-text;
+}
+
+.bazinga {
+    color: #f00;
+}

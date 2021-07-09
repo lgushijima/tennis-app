@@ -1,0 +1,26 @@
+﻿@use '../variables.scss';
+
+
+
+/*** Avatar ***/
+/******************/
+img.avatar {
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    background-color: $gray-200;
+    vertical-align: middle;
+    margin-bottom: 2px;
+    margin: 0 0.75rem;
+}
+
+img.avatar-32 {
+    height: 32px;
+    width: 32px;
+    margin: 0 0.5rem;
+}
+
+img.avatar-128 {
+    height: 128px;
+    width: 128px;
+}

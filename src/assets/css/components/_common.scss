@@ -1,0 +1,384 @@
+@use '../variables.scss';
+@use './animations.scss';
+
+.ignore-content * {
+    pointer-events: none;
+}
+
+.testnet {
+    background: $danger-background-light;
+    color: $danger;
+    text-align: center;
+    font-size: 10px;
+    line-height: 12px;
+    padding: 0 0.5rem;
+    text-transform: uppercase;
+    position: fixed;
+    top: 44px;
+    z-index: 5;
+    left: 105px;
+    border-radius: 4px;
+}
+
+.absolute-wrapper {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.align-self-start {
+    align-self: start;
+}
+.align-self-center {
+    align-self: center;
+}
+.align-self-end {
+    align-self: end;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.input-token-amount {
+    text-align: center;
+    border: none;
+    font-size: 38px !important;
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.text-bold {
+    font-weight: 500;
+}
+
+.text-bold {
+    font-weight: 500;
+}
+
+label {
+    margin: 0;
+}
+
+/* widths */
+@for $i from 1 through 20 {
+    .width-#{$i * 50} {
+        width: (50px * $i);
+    }
+}
+
+/* font-sizes */
+@for $i from 0 through 10 {
+    .fs-#{$i * 2 + 10} {
+        font-size: calc(10px + #{$i * 2}px);
+    }
+}
+
+.bold {
+    font-weight: bold !important;
+}
+
+.text-small {
+    font-size: 0.825rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.fa,
+.fas {
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 300;
+}
+
+/*GRID TEMPLATES*/
+.template-rows {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
+}
+
+.template-columns-left {
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.template-columns-right {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.self-align-center {
+    align-self: center;
+}
+/* end grid templates */
+
+/*FORM CONTROL*/
+.form-control {
+    font-size: 0.85rem;
+    height: 38px;
+}
+
+.direction-ltr {
+    direction: ltr;
+}
+
+.direction-rtl {
+    direction: rtl;
+
+    * {
+        direction: ltr;
+    }
+}
+
+/* HEIGHT AND OVERFLOW*/
+.full-height {
+    min-height: 100%;
+    height: 100%;
+    max-height: 100%;
+}
+
+.overflow-x-auto {
+    overflow-x: auto;
+}
+
+.overflow-x-hidden {
+    overflow-x: hidden;
+}
+
+.overflow-y-auto {
+    overflow-y: auto;
+}
+
+.overflow-y-hidden {
+    overflow-y: hidden;
+}
+
+/* FORMS */
+.form-row {
+    margin-bottom: 5px;
+
+    > div.col {
+        > .label {
+            font-size: 0.95rem;
+        }
+    }
+}
+
+/*INPUT GROUP*/
+.input-group {
+    .input-group-prepend .input-group-text,
+    .input-group-append .input-group-text {
+        color: $secondary-text;
+    }
+}
+
+/**** ERRORS VALIDATION ****/
+.input-validation-error {
+    border-color: $danger !important;
+    color: $danger !important;
+    background-color: $danger-background-light !important;
+    &:focus,
+    &:active {
+        box-shadow: 0 0 0.5rem -0.2rem $danger !important;
+    }
+}
+
+select.ninjaCombo.input-validation-error + div .nc-combo-input {
+    border-color: $danger !important;
+    color: $danger !important;
+    background-color: $danger-background-light !important;
+}
+
+select.ninjaCombo.input-validation-error + div .nc-combo-list-wrapper {
+    border: 1px solid $danger;
+    border-top: none;
+    background-color: $danger-background-light;
+}
+
+select.ninjaCombo.input-validation-error + div .nc-combo-input-arrow {
+    border-top-color: $danger;
+}
+
+.circle-hover-effect {
+    position: relative;
+
+    i,
+    svg {
+        position: relative;
+        z-index: 2;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        background: rgba(0, 0, 0, 0);
+        border-radius: 50%;
+        z-index: 1;
+
+        -webkit-transition: background 0.1s ease-in;
+        -moz-transition: background 0.1s ease-in;
+        -o-transition: background 0.1s ease-in;
+        transition: background 0.1s ease-in;
+    }
+    &:hover:before {
+        background: rgba(0, 0, 0, 0.2);
+    }
+}
+
+.modal {
+    display: none;
+    -webkit-transition: opacity 0.15s ease-in;
+    -moz-transition: opacity 0.15s ease-in;
+    -o-transition: opacity 0.15s ease-in;
+    transition: opacity 0.15s ease-in;
+    opacity: 0;
+    &.show {
+        opacity: 1;
+    }
+}
+
+.no-cursor {
+    cursor: default;
+}
+
+.social-media-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+        display: inline-block;
+        margin-right: 0.25;
+
+        a {
+            display: block;
+            width: 28px;
+            line-height: 28px;
+            font-size: 16px;
+            text-align: center;
+            background: $gray-700;
+            color: $white;
+            border-radius: 5px;
+            * {
+                pointer-events: none;
+            }
+        }
+    }
+}
+
+.word-break-all {
+    word-break: break-all;
+}
+
+.invited-users-wrapper {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .referral-invited-user {
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid $disabled-text;
+
+        label {
+            color: $primary-text;
+        }
+    }
+}
+
+.component-icon-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.component-icon-title {
+    .box-icon {
+        display: flex;
+        margin-right: 10px;
+        min-width: 40px;
+        width: 40px;
+        height: 40px;
+        left: 572px;
+        top: 82px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+
+        &.orange {
+            background: #f2994a;
+        }
+        &.blue {
+            background: #2f7aea;
+        }
+        &.green {
+            background: #78b639;
+        }
+        &.purple {
+            background: #9825fb;
+        }
+        &.pink {
+            background: #e960c2;
+        }
+        &.dark-teal {
+            background: #16807f;
+        }
+    }
+}
+
+.border-rounded {
+    border-radius: 15px;
+}
+
+.page-banner {
+    .banner-content-1 {
+        position: relative;
+        background: $light-background;
+        border: 1px solid transparent;
+        border-radius: 15px;
+        padding: 1rem;
+
+        h2 {
+            color: $primary;
+            text-transform: none;
+            font-weight: 500;
+            font-size: 26px;
+
+            span {
+                color: $primary-text;
+            }
+        }
+
+        img {
+            position: absolute;
+            right: 4rem;
+            bottom: 0;
+        }
+
+        @media only screen and (max-width: 768px) {
+            h2 {
+                font-size: 22px;
+            }
+            img {
+                display: none;
+            }
+        }
+    }
+    a.close {
+        position: absolute;
+        top: 0.5rem;
+        right: 1rem;
+    }
+}

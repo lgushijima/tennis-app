@@ -1,0 +1,161 @@
+﻿@use '../variables.scss';
+
+/*DROP DOWN MENU*/
+.dropdown-menu-wrapper {
+    position: relative;
+}
+
+.dropdown-menu {
+    z-index: 30;
+    padding: 0px;
+    box-shadow: 0px 6px 15px -8px #424242;
+    margin: 0px;
+    margin-top: 8px;
+
+    &.show {
+        transform: unset !important;
+        left: unset !important;
+        right: unset !important;
+        top: 100% !important;
+        margin-top: 12px;
+        padding: 2px;
+        display: block !important;
+
+        &.dropdown-menu-left {
+            left: -50% !important;
+
+            &.dropdown-default {
+                left: 0px !important;
+            }
+        }
+
+        &.dropdown-menu-right {
+            right: -50% !important;
+
+            &.dropdown-default {
+                right: 0px !important;
+            }
+        }
+
+        &.drop-down-tree-view {
+            left: 0px !important;
+        }
+
+        &.dropdown-menu-left:before,
+        &.dropdown-menu-right:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            top: -13px;
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 12px solid rgba(0, 0, 0, 0.15);
+        }
+
+        &.dropdown-menu-left:after,
+        &.dropdown-menu-right:after {
+            content: ' ';
+            display: block;
+            position: absolute;
+            top: -12px;
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-bottom: 12px solid #fff;
+        }
+
+        &.dropdown-menu-left:before,
+        &.dropdown-menu-left:after {
+            left: 20px;
+        }
+
+        &.dropdown-menu-right:before,
+        &.dropdown-menu-right:after {
+            right: 20px;
+        }
+
+        &.dropdown-menu-left.dropdown-24:before,
+        &.dropdown-menu-left.dropdown-24:after {
+            left: 12px !important;
+        }
+
+        &.dropdown-menu-right.dropdown-24:before,
+        &.dropdown-menu-right.dropdown-24:after {
+            right: 12px !important;
+        }
+        @for $i from 0 through 9 {
+            &.dropdown-menu-left.dropdown-#{$i * 2 + 32}:before,
+            &.dropdown-menu-left.dropdown-#{$i * 2 + 32}:after {
+                left: calc(32px + #{$i * 2}px - 12px) !important;
+            }
+
+            &.dropdown-menu-right.dropdown-#{$i * 2 + 32}:before,
+            &.dropdown-menu-right.dropdown-#{$i * 2 + 32}:after {
+                right: calc(32px + #{$i * 2}px - 12px) !important;
+            }
+        }
+
+        &.drop-up {
+            top: auto !important;
+            bottom: calc(100% + 8px);
+
+            &.dropdown-menu-left:before,
+            &.dropdown-menu-right:before {
+                top: initial;
+                bottom: -12px;
+                border-top: 12px solid rgba(0, 0, 0, 0.15);
+                border-left: 12px solid transparent;
+                border-right: 12px solid transparent;
+                border-bottom: 0;
+            }
+
+            &.dropdown-menu-left:after,
+            &.dropdown-menu-right:after {
+                top: initial;
+                bottom: -11px;
+                border-top: 12px solid #fff;
+                border-left: 12px solid transparent;
+                border-right: 12px solid transparent;
+                border-bottom: 0;
+            }
+        }
+    }
+
+    > div {
+        border-radius: 0.25rem;
+        overflow: hidden;
+    }
+
+    .dropdown-item {
+        padding: 0.25rem 0.5rem;
+        color: $primary-text;
+        font-size: 0.85rem;
+        line-height: 1.5rem;
+
+        svg,
+        i {
+            width: 25px;
+            text-align: center;
+        }
+    }
+
+    .dropdown-item:active {
+        color: $white;
+    }
+
+    &.dropdown-menu-left {
+        left: 0 !important;
+        right: auto !important;
+    }
+
+    .dropdown-divider {
+        margin: 0px;
+        height: 7px;
+        background: #fbfbfb url(../../../img/shadow.png);
+        border-bottom: 1px solid #eee;
+        border-top: none !important;
+    }
+}

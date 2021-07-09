@@ -1,0 +1,38 @@
+﻿@use '../variables.scss';
+
+
+.nc-check {
+    input + label span,
+    input + label span i {
+        color: $primary-text;
+    }
+
+    input:focus + label span,
+    input:focus + label span i {
+        color: $primary-text;
+    }
+
+    input:checked + label span,
+    input:checked + label span i {
+        color: $primary;
+    }
+
+    input + label {
+        margin-right: 22px !important;
+
+        span {
+            padding-left: 22px !important;
+            margin-right: 0px !important;
+        }
+    }
+
+    &:not(.boxed) {
+        border-color: transparent !important;
+    }
+
+    &.compacted {
+        padding-top: 0px;
+        height: 20px;
+        padding-bottom: 0px;
+    }
+}

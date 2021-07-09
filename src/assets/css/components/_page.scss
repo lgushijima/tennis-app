@@ -1,0 +1,36 @@
+﻿@use '../variables.scss';
+
+.page-content {
+    padding: 1rem;
+    height: 100%;
+
+    .page-template-fullscreen {
+        display: grid;
+        grid-template-columns: 1fr;
+        height: 100%;
+    }
+
+    .page-template-sidebars {
+        display: grid;
+        grid-template-columns: 70px 1fr 70px;
+        height: 100%;
+    }
+
+    .page-rows-template-01 {
+        display: grid;
+        grid-template-rows: auto auto auto 1fr;
+        height: 100%;
+    }
+
+    .page-rows-template-02 {
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        height: 100%;
+    }
+
+    .page-rows-template-03 {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        height: 100%;
+    }
+}

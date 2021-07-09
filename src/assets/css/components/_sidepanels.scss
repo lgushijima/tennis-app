@@ -1,0 +1,99 @@
+﻿@use '../variables.scss';
+
+
+
+/*** SIDE-BAR ***/
+/****************/
+aside.side-bar {
+    grid-area: n;
+    z-index: 100;
+    overflow: hidden;
+    width: 0px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+
+    &.active {
+        width: 250px;
+        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
+    }
+}
+
+
+/*** SIDE-PANEL ***/
+/******************/
+aside.side-panel {
+    position: absolute;
+    top: 60px;
+    bottom: 0px;
+    background-color: $white;
+    z-index: 90;
+    width: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+
+    &.active {
+        opacity: 1;
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+        z-index: 91;
+        box-shadow: 0 0 0.5rem 3px rgba(50, 50, 50, 0.1);
+    }
+
+    &.left {
+        left: 0px;
+        margin-left: -300px;
+    }
+
+    &.right {
+        right: 0px;
+        margin-right: -300px;
+    }
+
+    > div {
+        min-height: 100%;
+        height: 100%;
+        display: grid;
+        overflow-x: hidden;
+        grid-template-areas: "h" "c" "f";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+
+        > .title {
+            grid-area: h;
+            position: relative;
+            background: $gray-100;
+            padding-bottom: 20px !important;
+
+            > h4 {
+                margin-bottom: 0px;
+                margin-top: 5px;
+                color: $primary;
+            }
+        }
+
+        > .content {
+            grid-area: c;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        > .footer {
+            grid-area: f;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    aside.side-panel {
+        top: 82px;
+        bottom: 30px;
+    }
+}

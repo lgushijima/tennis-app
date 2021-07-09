@@ -1,0 +1,72 @@
+﻿@use '../variables.scss';
+
+.tab-component {
+    background: rgba(0, 0, 0, 0.05);
+    padding: .75rem 1rem;
+    padding-bottom: 0;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    margin-right: 2px;
+
+    .tab-component-item {
+        background: rgba(255, 255, 255, 0.4);
+        display: inline-block;
+        border-top-left-radius: .5rem;
+        border-top-right-radius: .5rem;
+        margin-right: 3px;
+        vertical-align: bottom;
+        overflow: hidden;
+
+        &.active {
+            background: $white;
+
+            div.tab-content {
+                a.tab-link {
+                    color: $primary;
+                }
+            }
+        }
+
+        > div {
+            display: grid;
+            grid-template-columns: 1fr auto;
+
+
+            a.tab-link {
+                display: block;
+                padding: .5rem 1rem .3rem 1rem;
+                color: $text-gray-3;
+                text-decoration: none;
+
+                &.closeable {
+                    padding-right: .25rem;
+                }
+
+                span {
+                    display: inline-block;
+                    max-width: 150px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    vertical-align: bottom;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            a.tab-close-button {
+                display: block;
+                padding: .5rem 1rem .3rem 1rem;
+                color: $text-gray-3;
+                text-decoration: none;
+                -webkit-transition: all .25s ease-in;
+                -moz-transition: all .25s ease-in;
+                -o-transition: all .25s ease-in;
+                transition: all .25s ease-in;
+
+                &:hover {
+                    background-color: $gray-100;
+                    color: $danger;
+                }
+            }
+        }
+    }
+}

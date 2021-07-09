@@ -1,0 +1,32 @@
+﻿@use '../variables.scss';
+
+/**** COMBO ****/
+.nc-combo-wrapper {
+    .nc-combo-list {
+        color: $primary-text;
+    }
+
+    .nc-combo-list li a {
+        border-radius: calc(0.3rem - 1px);
+        padding: 0.15rem 0.5rem;
+        margin-bottom: 1px;
+    }
+
+    .nc-combo-list li.selected a {
+        background-color: $primary;
+        color: #fff !important;
+        border-bottom: 1px solid $primary;
+    }
+
+    .nc-combo-input {
+        padding-right: 25px !important;
+    }
+
+    .nc-combo-input-arrow {
+        border-top-color: $primary;
+    }
+}
+.ninjaCombo:disabled + .nc-combo-wrapper .nc-combo-input {
+    color: $secondary-text;
+    background-image: none;
+}

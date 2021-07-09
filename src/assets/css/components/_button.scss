@@ -1,0 +1,83 @@
+﻿@use '../variables.scss';
+
+/*BUTTONS*/
+.btn {
+    outline: none;
+    box-shadow: none;
+    color: $primary-text;
+
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+
+    &:not(:disabled):not(.disabled):focus,
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled):hover {
+        outline: none;
+        box-shadow: none;
+    }
+}
+.btn-outline-light {
+    border-color: $gray-200;
+}
+
+@for $i from 0 through 9 {
+    .btn-#{$i * 2 + 32} {
+        width: calc(32px + #{$i * 2}px);
+    }
+}
+
+@for $i from 0 through 9 {
+    .btn-circle-#{$i * 2 + 32} {
+        width: calc(32px + #{$i * 2}px);
+        height: calc(32px + #{$i * 2}px);
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        background: transparent;
+        line-height: calc(20px + #{$i * 2}px);
+        padding: 0;
+    }
+}
+
+.btn-primary,
+.btn-danger,
+.btn-warning {
+    color: $white;
+
+    &:not(:disabled):not(.disabled):focus,
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled):hover {
+    }
+}
+
+.btn-outline-primary {
+    &:not(:disabled):not(.disabled):focus {
+        outline: none;
+        box-shadow: none;
+        color: $white;
+        background-color: $primary;
+        border-color: $primary;
+    }
+
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled):hover {
+        outline: none;
+        box-shadow: none;
+        color: $white;
+        background-color: $primary;
+        border-color: $primary;
+    }
+}
+
+.btn-danger-aux {
+    color: $danger;
+    border-color: $danger-background-light;
+    background-color: $danger-background-light;
+    &:hover {
+        color: $danger-hover;
+        border-color: $danger-background-light-hover;
+        background-color: $danger-background-light-hover;
+    }
+}

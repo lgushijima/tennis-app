@@ -1,0 +1,254 @@
+@use '../variables.scss';
+
+.wallet-card {
+    background: linear-gradient(102.49deg, $primary-gradient-start 18.13%, $primary-gradient-end 81.87%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 200px;
+
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+
+    &.black {
+        background: linear-gradient(102.49deg, $dark-gradient-start 18.13%, $dark-gradient-end 81.87%);
+        &:not(.no-action):hover {
+            border-color: $dark !important;
+        }
+        .wallet-card-header .title {
+            color: $text-white-70;
+        }
+    }
+    &.blue {
+        background: linear-gradient(102.49deg, $info-gradient-start 18.13%, $info-gradient-end 81.87%);
+        &:not(.no-action):hover {
+            border-color: $info !important;
+        }
+    }
+    &.orange {
+        background: linear-gradient(102.49deg, $warning-gradient-start 18.13%, $warning-gradient-end 81.87%);
+        &:not(.no-action):hover {
+            border-color: $warning !important;
+        }
+    }
+
+    &.small-card {
+        height: auto;
+    }
+
+    &:not(.no-action):hover {
+        box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.1);
+        border-color: $primary !important;
+        cursor: pointer;
+    }
+    * {
+        pointer-events: none;
+    }
+    p {
+        margin: 0;
+    }
+
+    .wallet-card-header {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        .icon {
+            color: $white;
+            margin-right: 1rem;
+        }
+        .title {
+            font-size: 18px;
+            color: $primary-text;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .options {
+            display: block;
+            font-size: 24px;
+            line-height: 24px;
+            width: 24px;
+            text-align: center;
+            pointer-events: initial;
+            color: $white;
+        }
+        .dropdown-menu * {
+            pointer-events: initial;
+        }
+    }
+
+    .wallet-card-body {
+        align-items: center;
+        display: grid;
+        height: 100%;
+
+        .token-amount {
+            font-size: 22px;
+            font-weight: bold;
+            color: $text-white-70;
+            > span {
+                color: $white;
+            }
+        }
+        .ink-amount {
+            font-size: 16px;
+            font-weight: normal;
+            color: $text-white-70;
+        }
+    }
+
+    .wallet-card-footer {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        color: $text-white-70;
+        .wallet-address {
+            pointer-events: initial;
+            cursor: pointer;
+        }
+        .wallet-qr-code {
+            pointer-events: initial;
+            color: $white;
+        }
+    }
+
+    &.creation {
+        background: $light-background;
+        border: 1px solid $disabled-text;
+        .wallet-card-header {
+            .icon {
+                width: 38px;
+                height: 38px;
+                display: inline-block;
+                line-height: 38px;
+                text-align: center;
+                color: $white;
+                background-color: $primary;
+                border-radius: 50%;
+                font-size: 20px;
+            }
+        }
+
+        .wallet-card-body {
+            h2 {
+                color: $primary-text;
+                margin: 0;
+                letter-spacing: 0;
+                font-weight: bold;
+                text-transform: capitalize;
+            }
+            p {
+                font-size: 14px;
+                line-height: 18px;
+                color: $secondary-text;
+                margin: 0;
+            }
+            small {
+                color: $primary-text;
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        .wallet-card-footer {
+            small {
+                color: $secondary-text;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.border-card {
+    border: 1px solid $secondary-text;
+    border-radius: 15px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 200px;
+
+    a {
+        display: flex;
+        margin: 0 auto;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        color: $primary-text;
+
+        * {
+            pointer-events: none;
+        }
+        svg {
+            margin-right: 0.5rem;
+        }
+    }
+    p {
+        line-height: 20px;
+        margin-bottom: 0;
+
+        > span {
+            color: #a4b1a4;
+            font-size: 14px;
+            margin: 0;
+            font-weight: normal;
+        }
+    }
+}
+
+.secondary-card {
+    background: $light-background;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    display: block;
+    text-align: left;
+    word-break: break-word;
+    line-height: 16px;
+
+    &.wallet-balance-info {
+        text-align: center;
+        p {
+            font-size: 14px;
+            color: $primary-text;
+            font-weight: 500;
+            margin: 0;
+        }
+        label {
+            font-size: 16px;
+            color: $primary-text;
+            display: block;
+            margin: 0.5rem 0;
+        }
+        span {
+            display: block;
+            font-size: 14px;
+            color: $secondary-text;
+        }
+    }
+
+    &.credit-card {
+        background: $credit-card-background;
+
+        .confirmation-card-number {
+            letter-spacing: 6.5px;
+        }
+        .confirmation-card-name {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        label {
+            font-size: 12px;
+            color: $secondary-text;
+            margin-bottom: 4px;
+        }
+    }
+}

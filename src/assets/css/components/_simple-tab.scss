@@ -1,0 +1,28 @@
+.simple-tab {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    height: 40px;
+
+    li {
+        text-align: center;
+
+        a {
+            display: block;
+            padding: 0.25rem;
+            font-size: 14px;
+            border-bottom: 1px solid #ccc;
+            &:hover {
+                color: $primary;
+                text-decoration: none;
+            }
+            &.active {
+                color: $primary;
+                border-bottom: 2px solid $primary;
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+@use '../variables.scss';
+
+.nav-tabs {
+    .nav-item {
+        margin-right: 2px;
+        .nav-link {
+            color: $secondary-text;
+        }
+
+        .nav-link.active,
+        .nav-item.show .nav-link {
+            color: $secondary-text;
+        }
+    }
+}

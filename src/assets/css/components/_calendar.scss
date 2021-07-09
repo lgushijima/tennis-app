@@ -1,0 +1,59 @@
+﻿@use '../variables.scss';
+
+/*NINJA CALENDAR*/
+.nc-calendar-wrapper {
+    .nc-calendar-list-wrapper {
+        background-color: $white;
+        border-color: $secondary-text;
+
+        table.nc-calendar-control {
+            background-color: $primary;
+            border-color: $primary;
+        }
+
+        table.nc-calendar-control tr td:not(.disabled):hover a {
+            background: $white;
+            color: $primary;
+        }
+
+        table.dayCalendar thead tr th {
+            color: $primary-text;
+        }
+
+        table.dayCalendar tbody tr td a.selected,
+        table.monthCalendar tbody tr td a.selected,
+        table.yearCalendar tbody tr td a.selected {
+            background-color: $primary;
+            border-color: $primary;
+            color: $white;
+        }
+
+        table.dayCalendar tbody tr td a,
+        table.monthCalendar tbody tr td a,
+        table.yearCalendar tbody tr td a {
+            color: $gray-600;
+        }
+
+        table.dayCalendar tbody tr td:not(.other-month) a:hover,
+        table.monthCalendar tbody tr td:not(.other-month) a:hover,
+        table.yearCalendar tbody tr td:not(.other-year) a:hover {
+            background-color: $primary;
+            border: 1px solid $primary;
+            color: $white;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        table.dayCalendar tbody tr td a.today {
+            background-color: $white;
+            border-color: $danger;
+            color: $danger;
+        }
+
+        table.nc-calendar-footer tbody tr td a.nc-calendar-btn {
+            background-color: $white;
+            border: 1px solid $white;
+            color: $primary;
+        }
+    }
+}
